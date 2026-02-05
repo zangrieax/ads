@@ -88,6 +88,8 @@ jobs:
           publish_branch: gh-pages  # Кастомная ветка для публикации
           publish_dir: ./docs
           force_orphan: true
+      - name: Add .nojekyll
+        run: touch docs/.nojekyll
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v3
       - name: Clear GitHub Pages cache
