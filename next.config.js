@@ -7,5 +7,6 @@ module.exports = {
   trailingSlash: true,
   images: {
     unoptimized: true,
+    domains: ['fonts.googleapis.com', 'fonts.gstatic.com'],
   },
 }
