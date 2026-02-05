@@ -4,6 +4,7 @@ module.exports = {
   output: 'export',
   distDir: isProd ? 'docs' : 'out',
   basePath: isProd ? '/site-ads' : '',
+  assetPrefix: isProd ? '/site-ads' : '',
   trailingSlash: true,
   images: {
     unoptimized: true,
