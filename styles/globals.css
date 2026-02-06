@@ -1593,7 +1593,7 @@ p, span, div, li, a, button, input, textarea {
     margin-bottom: 15px;
     padding-left: 25px;
     position: relative;
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.6;
     color: var(--color-dark-gray);
     transition: all 0.3s ease;
