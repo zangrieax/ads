@@ -1,4 +1,5 @@
 import { useState, FormEvent } from 'react'
+import { sendToTelegram } from '../utils/telegram'
 
 const CTA = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -30,16 +31,29 @@ const CTA = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    const form = document.getElementById('mainForm') as HTMLFormElement
+    if (!form) {
+      return
+    }
+      const inputs = form.querySelectorAll('.form-input');
+      const formData = {}
+      inputs.forEach(input => {
+          const label = input.closest('.form-group')?.querySelector('.form-label');
+          const labelText = label ? label.textContent.trim() : 'Поле без названия';
+          const value = input?.['value'].trim();
+          if (value) {
+            Object.assign(formData, { [labelText]: value })
+          }
+      });
+      await sendToTelegram(formData)
 
     // Имитация отправки
     setTimeout(() => {
       setIsSubmitting(false)
       showNotification('ЗАЯВКА ОТПРАВЛЕНА')
-      
       // Сброс формы через 3 секунды
       setTimeout(() => {
-        const form = document.getElementById('mainForm') as HTMLFormElement
-        if (form) form.reset()
+        form.reset()
       }, 3000)
     }, 1000)
   }
