@@ -7,10 +7,10 @@ const Footer = () => {
         <div className="footer-logo fade-in">NOOVERHEADS</div>
         <div className="footer-divider fade-in" style={{ transform: 'scaleX(1)', opacity: 1, transition: 'transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.8s' }}></div>
         <div className="footer-links fade-in">
-          <a href={`${assetPrefix}/docs/confidentiality.pdf`} className="footer-link">Конфиденциальность</a>
-          <a href={`${assetPrefix}/docs/agreement.pdf`} className="footer-link">Партнерское соглашение</a>
-          <a href={`${assetPrefix}/docs/compliance-152fz.pdf`} className="footer-link">152-ФЗ Комплаенс</a>
-          <a href={`${assetPrefix}/docs/contacts.pdf`} className="footer-link">Контакты</a>
+          <a href={`${assetPrefix}/documents/confidentiality.pdf`} className="footer-link">Конфиденциальность</a>
+          <a href={`${assetPrefix}/documents/agreement.pdf`} className="footer-link">Партнерское соглашение</a>
+          <a href={`${assetPrefix}/documents/compliance-152fz.pdf`} className="footer-link">152-ФЗ Комплаенс</a>
+          <a href={`${assetPrefix}/documents/contacts.pdf`} className="footer-link">Контакты</a>
         </div>
         <p className="footer-copyright fade-in">
           © 2026 NOOVERHEADS. Все права защищены.<br />
