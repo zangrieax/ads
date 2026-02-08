@@ -27,6 +27,16 @@ jobs:
           NEXT_PUBLIC_TELEGRAM_CHAT_ID: ${{ secrets.NEXT_PUBLIC_TELEGRAM_CHAT_ID }}
         run: npm run build
         working-directory: ./
+      - name: Copy public files to docs
+        run: |
+          if [ -d "public" ]; then
+            echo "Copying public files to docs directory..."
+            cp -r public/* docs/ 2>/dev/null || :
+            # Копируем скрытые файлы из public (например, .htaccess)
+            cp -r public/.[!.]* docs/ 2>/dev/null || :
+          else
+            echo "Public directory not found"
+          fi
       - name: Check permissions
         run: |
           touch docs/.nojekyll
