@@ -11,7 +11,6 @@ const nextConfig = (phase: string): NextConfig => {
     trailingSlash: true,
     images: {
       unoptimized: true,
-      domains: ['fonts.googleapis.com', 'fonts.gstatic.com'],
     },
   };
 };
