@@ -25,6 +25,7 @@ jobs:
         env:
           NEXT_PUBLIC_TELEGRAM_BOT_TOKEN: ${{ secrets.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN }}
           NEXT_PUBLIC_TELEGRAM_CHAT_ID: ${{ secrets.NEXT_PUBLIC_TELEGRAM_CHAT_ID }}
+          NEXT_PUBLIC_ASSET_PREFIX: ${{ vars.NEXT_PUBLIC_ASSET_PREFIX }}
         run: npm run build
         working-directory: ./
       - name: Copy public files to docs
