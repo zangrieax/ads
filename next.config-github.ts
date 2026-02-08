@@ -1,15 +1,19 @@
-const isProd = process.env.NODE_ENV === 'production';
+import type { NextConfig } from "next"
 
-const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX ?? ''
+const nextConfig = (phase: string): NextConfig => {
+  const isProd = process.env.NODE_ENV === 'production';
+  const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX ?? ''
+  return {
+    output: 'export',
+    distDir: isProd ? 'docs' : 'out',
+    basePath: isProd ? assetPrefix : '',
+    assetPrefix: isProd ? assetPrefix : '',
+    trailingSlash: true,
+    images: {
+      unoptimized: true,
+      domains: ['fonts.googleapis.com', 'fonts.gstatic.com'],
+    },
+  };
+};
 
-module.exports = {
-  output: 'export',
-  distDir: isProd ? 'docs' : 'out',
-  basePath: isProd ? assetPrefix : '',
-  assetPrefix: isProd ? assetPrefix : '',
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-    domains: ['fonts.googleapis.com', 'fonts.gstatic.com'],
-  },
-}
+export default nextConfig

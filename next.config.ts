@@ -1,8 +1,12 @@
-const isProd = process.env.NODE_ENV === 'production';
+import type { NextConfig } from "next"
 
-module.exports = {
-  images: {
-    unoptimized: true,
-    domains: ['fonts.googleapis.com', 'fonts.gstatic.com'],
-  },
-}
+const nextConfig = (phase: string): NextConfig => {
+  return {
+    images: {
+      unoptimized: true,
+      domains: ['fonts.googleapis.com', 'fonts.gstatic.com'],
+    },
+  };
+};
+
+export default nextConfig
