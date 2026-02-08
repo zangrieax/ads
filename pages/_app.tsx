@@ -37,6 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="description" content="Эксклюзивная система привлечения клиентов для агентств элитной недвижимости. Монополия на район. Платите только за результат." />
+        <meta name="build" content={process.env.NEXT_PUBLIC_BUILD_DATE} />
         <title>NOOVERHEADS | Стратегия эксклюзивного присутствия для элитной недвижимости</title>
       </Head>
       <main className={`${cormorantGaramond.variable} ${playfairDisplay.variable} ${bebasNeue.variable} font-sans`}>

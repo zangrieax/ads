@@ -21,11 +21,16 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
+      - name: Set Build Date
+        # Устанавливаем часовой пояс Москвы и сохраняем дату в переменную окружения GitHub
+        run: |
+          echo "BUILD_DATE=$(TZ='Europe/Moscow' date +'%d.%m.%Y %H:%M MSK')" >> $GITHUB_ENV
       - name: Build project
         env:
           NEXT_PUBLIC_TELEGRAM_BOT_TOKEN: ${{ secrets.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN }}
           NEXT_PUBLIC_TELEGRAM_CHAT_ID: ${{ secrets.NEXT_PUBLIC_TELEGRAM_CHAT_ID }}
           NEXT_PUBLIC_ASSET_PREFIX: ${{ vars.NEXT_PUBLIC_ASSET_PREFIX }}
+          NEXT_PUBLIC_BUILD_DATE: ${{ env.BUILD_DATE }} # VS Code может ругаться здесь
         run: npm run build
         working-directory: ./
       - name: Copy public files to docs
